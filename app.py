@@ -152,5 +152,7 @@ Return ONLY valid JSON like this: {{"prompt": "updated prompt here"}}"""
 
     return jsonify({'updatedPrompt': new_prompt})
 
+
+# deployment fix
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000))) 
