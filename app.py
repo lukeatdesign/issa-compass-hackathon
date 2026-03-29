@@ -8,6 +8,8 @@ import json
 load_dotenv()
 
 app = Flask(__name__)
+from flask_cors import CORS
+CORS(app)
 client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
 
 SUPABASE_URL = os.getenv("SUPABASE_URL")
