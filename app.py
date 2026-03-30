@@ -131,22 +131,22 @@ def improve_ai_manually():
     instructions = data.get('instructions', '')
     current_prompt = get_prompt()
 
-   editor_prompt = f"""You are an AI prompt editor. Compare these two replies and improve the system prompt.
+    editor_prompt = f"""You are an AI prompt editor. Compare these two replies and improve the system prompt.
 
-CURRENT SYSTEM PROMPT:
-{current_prompt}
+    CURRENT SYSTEM PROMPT:
+    {current_prompt}
 
-CLIENT MESSAGE:
-{client_message}
+    CLIENT MESSAGE:
+    {client_message}
 
-PREDICTED AI REPLY:
-{predicted_reply}
+    PREDICTED AI REPLY:
+    {predicted_reply}
 
-REAL CONSULTANT REPLY:
-{consultant_reply}
+    REAL CONSULTANT REPLY:
+    {consultant_reply}
 
-IMPORTANT: You must respond with ONLY a JSON object. No analysis, no explanation, no markdown. Just this exact format:
-{{"prompt": "updated prompt here"}}"""
+    IMPORTANT: You must respond with ONLY a JSON object. No analysis, no explanation, no markdown. Just this exact format:
+    {{"prompt": "updated prompt here"}}"""
 
     response = client.messages.create(
         model='claude-opus-4-5',
