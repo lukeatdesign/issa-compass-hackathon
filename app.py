@@ -115,6 +115,7 @@ Return ONLY valid JSON like this: {{"prompt": "updated prompt here"}}"""
     )
 
     clean = editor_response.content[0].text.replace('```json', '').replace('```', '').strip()
+    print(f"CLEAN RESPONSE: {clean}") 
     updated = json.loads(clean)
     new_prompt = updated['prompt']
     save_prompt(new_prompt)
