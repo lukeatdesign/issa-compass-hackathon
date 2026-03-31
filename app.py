@@ -43,8 +43,8 @@ def hello():
 
 @app.route('/get-prompt', methods=['GET'])
 def get_current_prompt():
-prompt = get_prompt()
-return jsonify({'prompt': prompt})
+    prompt = get_prompt()
+    return jsonify({'prompt': prompt})
 
 @app.route('/generate-reply', methods=['POST'])
 def generate_reply():
