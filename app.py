@@ -23,15 +23,11 @@ def supabase_headers():
     }
 
 def get_prompt():
-    print("TESTCASE1")
-    print(f"URL: {SUPABASE_URL}/rest/v1/ai_prompts?limit=1")
     response = requests.get(
-        f"{SUPABASE_URL}/rest/v1/ai_prompts",
+        f"{SUPABASE_URL}/rest/v1/ai_prompts?order=id.desc&limit=1",
         headers=supabase_headers()
     )
-    
     data = response.json()
-    print(f"DATA: {data}")
     return data[0]["prompt"]
 
 def save_prompt(new_prompt):
@@ -44,6 +40,11 @@ def save_prompt(new_prompt):
 @app.route('/')
 def hello():
     return 'Issa Compass AI Server is running!!'
+
+@app.route('/get-prompt', methods=['GET'])
+def get_current_prompt():
+prompt = get_prompt()
+return jsonify({'prompt': prompt})
 
 @app.route('/generate-reply', methods=['POST'])
 def generate_reply():
