@@ -110,7 +110,7 @@ IMPORTANT: You must respond with ONLY a JSON object. No analysis, no explanation
 
     editor_response = client.messages.create(
         model='claude-opus-4-5',
-        max_tokens=2048,
+        max_tokens=4096,
         messages=[{'role': 'user', 'content': editor_prompt}]
     )
 
